@@ -1,0 +1,66 @@
+html{
+    background-color: #222;
+    color: #ee6;
+}
+
+h1,
+h1:hover {
+    margin: 0 auto; /*para centrar el bloque de texto*/
+    width: fit-content; /*ajusta el contenido*/
+    text-align: center; 
+    color: rgb(230, 24, 24);
+}
+
+p{font-family: sans-serif;}
+
+h1, h2, h3{
+    color: #eee;
+    text-transform: uppercase;
+}
+
+strong{
+    border-style: solid;
+    border-color: white;
+    border-width: 0 0 1px 0;
+}
+
+.the-force{
+    background-color: #444;
+    font-weight: bold;
+}
+
+.light-side{color: #66f;}
+
+.dark-side{color: #f33;}
+
+#og-trilogy{list-style-type: circle;}
+
+ul:nth-of-type(2){
+    padding-left: 6em;
+}
+
+ul:nth-of-type(3) li:last-child{
+    margin-top: 20px;
+}
+
+p:nth-of-type(1)::first-line{
+    color: #efe;
+}
+
+a:visited{
+    color: gray;
+}
+
+a:not([href]){
+    font-style: italic;
+}
+
+li:nth-child(even){
+    background-color: #111; 
+    width: fit-content;
+}
+
+li:nth-child(odd){
+    background-color: #333;
+    width: fit-content;
+}
