@@ -1,0 +1,53 @@
+@media (min-width: 400px){
+    html body{
+        background-color: rgb(40,60,80);
+    }
+}
+@media (max-width: 800px){
+    h1{
+        text-align: center;
+    }
+}
+@media (orientation: landscape) {
+    article{
+        max-width: 50ch;
+    }
+}
+@media (height >= 200px) {
+    h1{
+        background-color: rgb(17, 107, 22);
+    }
+}
+@media print {
+    body p{
+        font-family: serif;
+    }
+}
+@media (prefers-color-scheme: light) {
+    html body, h1{
+        color: #111;
+        background-color: #ddd;
+    }
+}
+@media screen and (not (hover)) {
+    body a{
+        background-color: #212;
+        padding: 5px 2px;
+    }
+}
+@media screen and ((min-width: 800px) and (max-width: 900px)) {
+    img{
+        visibility: hidden;
+    }
+}
+@media screen and (200px <= width <= 400px) {
+    html body img{
+        height: 400px;
+        object-fit: cover;
+    }
+}
+@media (min-resolution: 2dppx){
+    body article{
+        background-color: #667;
+    }
+}
