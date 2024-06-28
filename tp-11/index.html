@@ -39,6 +39,16 @@
                             Colour (color)
                         </button>
                     </div>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <input type="text" id="nuevoTextoInput" placeholder="Ingresa el nuevo texto">
+                        <button class="btn btn-primary" onclick="editarTexto()" data-formato="nuevoTexto">Guardar Cambios</button>
+                    </div>
+                    <div> 
+                        <p class="h4" style="text-align: center; margin-top: 30px;">Apariencia del texto: (Pequeño, Estandar y Grande)</p>
+                        <div style="text-align: center;">
+                            <input type="range" id="tamanioTextoInput" min="10" max="30" value="16" onchange="modificarTexto()">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,6 +95,18 @@
             colorear.innerText="Estoy de otro colorr";
         }
 
+        //Agregar la posibilidad de editar el texto, con un input para escribir un nuevo texto.
+        function editarTexto() {
+            let nuevoTexto = document.getElementById("nuevoTextoInput").value;
+            document.getElementById("texto").innerText = nuevoTexto;
+        }
+
+        //Agregar la funcionalidad de modificar el tamaño del texto.
+        function modificarTexto(){
+            let tamanio = document.getElementById("tamanioTextoInput").value;
+            document.getElementById("texto").style.fontSize = tamanio + "px";
+        }
+
         function handlerBoton(e) {
             const funcionBoton = e.target.dataset.formato;
             switch (funcionBoton) {
@@ -99,9 +121,14 @@
                     break;
                 case 'Color':
                     funcionColor();
+                case 'nuevoTexto':
+                    editarTexto();
             }
         }
+
+        modificarTexto();
         document.querySelectorAll('button.btn').forEach(e => e.addEventListener('click', handlerBoton));
+        
     </script>
 </body>
 </html>
