@@ -34,6 +34,11 @@
                             Underline (Subrayado)
                         </button>
                     </div>
+                    <div class="col-12 col-md-4 my-1">
+                        <button id="btn-color" class="btn d-block w-100 btn-primary" data-formato="Color">
+                            Colour (color)
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,6 +53,7 @@
         function funcionNegrita() {
             let negrita = document.getElementById("btn-negrita");
             negrita.style.fontWeight="bold";
+            negrita.innerText="Estoy en negritaa";
         }
 
         /**
@@ -57,6 +63,7 @@
         function funcionCursiva() {
             let cursiva = document.getElementById("btn-cursiva");
             cursiva.style.fontStyle="italic";
+            cursiva.innerText="Estoy en cursivaa";
         }
 
         /**
@@ -66,6 +73,16 @@
         function funcionSubrayado() {
             let subrayado = document.getElementById("btn-subrayado");
             subrayado.style.textDecoration="underline";
+            subrayado.innerText="Estoy subrayadoo";
+        }
+
+        /*Agregar un nuevo botón con un estilo adicional (puede ser para aplicar un color al texto, por ejemplo)
+        */
+        function funcionColor() {
+            let colorear = document.getElementById("btn-color");
+            colorear.style.color="black";
+            colorear.style.backgroundColor="lightblue";
+            colorear.innerText="Estoy de otro colorr";
         }
 
         function handlerBoton(e) {
@@ -80,6 +97,8 @@
                 case 'subrayado':
                     funcionSubrayado();
                     break;
+                case 'Color':
+                    funcionColor();
             }
         }
         document.querySelectorAll('button.btn').forEach(e => e.addEventListener('click', handlerBoton));
