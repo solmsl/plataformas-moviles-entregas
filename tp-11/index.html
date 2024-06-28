@@ -56,7 +56,8 @@
          */
         function funcionCursiva() {
             let cursiva = document.getElementById("btn-cursiva");
-            cursiva.style="italic";
+            let parrafo = cursiva.nextSibling;
+            parrafo.style.fontStyle="italic";
         }
 
         /**
@@ -64,8 +65,8 @@
          * esta función se va a llamar cuando el usuario selecciona la opción Bold (negrita).
          */
         function funcionSubrayado() {
-            let negrita = document.getElementById("btn-negrita");
-            negrita.style.fontWeight="underline";
+            let subrayado = document.getElementById("btn-subrayado");
+            subrayado.style.textDecoration="underline";
         }
 
         function handlerBoton(e) {
