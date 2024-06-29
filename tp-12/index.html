@@ -26,6 +26,19 @@
                         <button class="btn btn-primary" type="submit">Agregar Producto</button>
                     </div>
                 </form>
+
+                <div class="input-group mb-3" style="margin-top: 30px;">
+                    <input type="text" class="form-control" aria-label="Nombre del Producto" id="eliminar-producto-input">
+                    <button class="btn btn-danger btn-sm ms-2" id="eliminar-producto" onclick="eliminarProducto()">Eliminar Producto</button>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="btn btn-primary" id="eliminar" onclick="eliminarLista()">Eliminar lista</button>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="btn btn-primary" id="ordenar" onclick="OrdenarAlfa()">Ordenar Lista</button>
+                </div>
             </div>
         </div>
     </div>
@@ -37,9 +50,40 @@
          * esta función se va a llamar cuando el usuario envía el formulario con el nombre del producto para agregar.
          */
         function agregarProducto(nombreProducto) {
-            // su implementación
+            let lista = document.getElementById("lista-productos")
+            let elemento = document.createElement('li');
+            elemento.textContent=nombreProducto;
+            lista.appendChild(elemento);
         }
 
+        function eliminarLista() {
+            const listaProductos = document.getElementById('lista-productos');
+            listaProductos.innerHTML = "";
+        }
+
+        function OrdenarAlfa(){
+            let ul = document.getElementById("lista-productos");    
+           
+            let lista = ul.getElementsByTagName("li");
+
+            let arrayLista = Array.from(lista);
+            arrayLista.sort((a, b) => a.textContent.localeCompare(b.textContent)).forEach(li => ul.appendChild(li));
+        }
+
+        function eliminarProducto() {
+            const input = document.getElementById("eliminar-producto-input");
+            const nombreProducto = input.value.toLowerCase().trim();
+            const lista = document.getElementById("lista-productos");
+            const items = lista.getElementsByTagName('li');
+
+            for (let i = 0; i < items.length; i++) {
+                const nombreItem = items[i].textContent.toLowerCase().trim();
+                if (nombreItem === nombreProducto) {
+                    lista.removeChild(items[i]);
+                    break;
+                }
+            }
+        }
         function handlerFormulario(e) {
             e.preventDefault();
             const input = e.target.querySelector('input');
@@ -49,6 +93,10 @@
         }
 
         document.querySelector('form').addEventListener('submit', handlerFormulario);
+        document.getElementById('eliminar-producto').addEventListener('click', eliminarProducto);
+        document.getElementById('eliminar').addEventListener('click', eliminarLista);
+        document.getElementById('ordenar').addEventListener('click', OrdenarAlfa);
+
     </script>
 </body>
 </html>
