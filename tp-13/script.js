@@ -9,8 +9,8 @@ let contactos = [
  * agregarContacto()
  * esta función se va a llamar cuando el usuario envía el formulario con el nuevo contacto para agregar.
  */
-const unordenedList=document.querySelector("#lista-contactos");
 function agregarContacto(nombre, apellido) {
+    contactos.push({nombre:nombre, apellido:apellido});
     
 }
 
